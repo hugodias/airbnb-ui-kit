@@ -2,31 +2,46 @@ import React, { Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
 const Typography = styled.p`
-  color: ${props => props.color};
-  font-weight: ${props => props.fontWeight};
-  font-size: ${props => props.fontSize};
-  line-ieght: ${props => props.lineHeight};
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  color: ${props => props.theme.color};
+  font-weight: ${props => props.theme.fontWeight};
+  font-size: ${props => props.theme.fontSize};
+  line-height: ${props => props.theme.lineHeight};
+  letter-spacing: ${props => props.theme.letterSpacing};
+  margin: 0;
+  padding: 0;
+  font-family: ${props => props.theme.fontFamily || '"Roboto", sans-serif'};
 `;
 
 const defaultTheme = {
-  color: "blue",
-  fontWeight: "normal",
+  color: "#2b2b2b",
+  fontWeight: "400",
   fontSize: "14px",
-  lineHeight: "40px"
+  lineHeight: "40px",
+  letterSpacing: "0px"
 };
 
-const h1Theme = {
-  color: "rgb(72, 72, 72)",
-  fontWeight: "normal",
-  fontSize: "14px"
+const titleTheme = {
+  color: "#2b2b2b",
+  fontWeight: "700",
+  fontSize: "34px",
+  lineHeight: "40px",
+  letterSpacing: "-.8px"
 };
 
-const h2Theme = {
-  color: "blue",
-  fontWeight: "800",
-  fontSize: "16px"
+const headlineTheme = {
+  color: "#767676",
+  fontWeight: "300",
+  fontSize: "34px",
+  lineHeight: "40px",
+  letterSpacing: "-.4px"
 };
+
+const paragraphTheme = {
+  fontFamily: "'Arimo', sans-serif;",
+  lineHeight: "22px"
+}
 
 class Text extends Component {
   constructor(props) {
@@ -38,24 +53,30 @@ class Text extends Component {
 
   componentWillMount() {
     let theme = defaultTheme;
+    const { type, size } = this.props;
 
     // Apply themes
-    if (this.props.h1) {
-      theme = { ...theme, ...h1Theme };
-    } else if (this.props.h2) {
-      theme = { ...theme, ...h2Theme };
+    switch (type) {
+      case "title":
+        theme = { ...theme, ...titleTheme };
+        break;
+      case "headline":
+        theme = { ...theme, ...headlineTheme };
+        break;
+      case "paragraph":
+        theme = { ...theme, ...paragraphTheme };
+        break;
     }
-    
-    console.log(theme);
 
     this.setState({ theme });
   }
 
   render() {
     const { theme } = this.state;
+    const Tag = Typography.withComponent(this.props.tag || "p");
     return (
       <ThemeProvider theme={theme}>
-        <Typography>{this.props.children}</Typography>
+        <Tag style={this.props.style}>{this.props.children}</Tag>
       </ThemeProvider>
     );
   }
