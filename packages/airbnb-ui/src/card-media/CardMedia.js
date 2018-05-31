@@ -9,7 +9,9 @@ const Media = styled.div`
   width: 100%;
   height: 0;
   padding-top: 56.25%;
-  background-image: url(${props => props.src})
+  border-radius: 3px;
+  background-image: url(${props => props.src});
+  margin-bottom: 8px;
 `;
 
 const CardMedia = props => (

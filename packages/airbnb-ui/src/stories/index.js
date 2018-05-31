@@ -51,18 +51,21 @@ storiesOf("Typography", module).add("Text", () => (
 
 const cardStyles = {
   card: {
-    maxWidth: 345
+    maxWidth: 268
   }
 };
 
 storiesOf("Card", module).add("with image", () => (
-  <Card style={cardStyles.card}>
+  <Card style={cardStyles.card} onClick={action("clicked")}>
     <CardMedia src={cardImageSrc} />
-    <Text type="title" tag="h3">
-      Barco - Charleston
+    <Text tag="span">
+      Quarto inteiro · Marrakech
     </Text>
-    <Text type="headline" tag="h2">
-      A Pirate's Life For me - Houseboat!
+    <Text tag="h2">
+      The Cozy Place
+    </Text>
+    <Text type="paragraph" tag="p">
+      R$ 408 por noite · Cancelamento gratuito
     </Text>
   </Card>
 ));
