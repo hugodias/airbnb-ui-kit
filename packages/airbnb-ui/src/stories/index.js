@@ -4,7 +4,15 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
-import { Button, ExploreCard, Card, CardMedia, Text } from "../index";
+import {
+  Button,
+  ExploreCard,
+  Card,
+  CardContent,
+  CardMedia,
+  CardHeader,
+  Text
+} from "../index";
 import "../styles/index.css";
 
 const imageSrc =
@@ -55,17 +63,21 @@ const cardStyles = {
   }
 };
 
-storiesOf("Card", module).add("with image", () => (
-  <Card style={cardStyles.card} onClick={action("clicked")}>
-    <CardMedia src={cardImageSrc} />
-    <Text tag="span">
-      Quarto inteiro · Marrakech
-    </Text>
-    <Text tag="h2">
-      The Cozy Place
-    </Text>
-    <Text type="paragraph" tag="p">
-      R$ 408 por noite · Cancelamento gratuito
-    </Text>
-  </Card>
-));
+storiesOf("Card", module)
+  .add("with image", () => (
+    <Card style={cardStyles.card} onClick={action("clicked")}>
+      <CardMedia src={cardImageSrc} />
+      <CardContent>
+        <Text tag="span">Quarto inteiro · Marrakech</Text>
+        <Text tag="h2">The Cozy Place</Text>
+        <Text type="paragraph" tag="p">
+          R$ 408 por noite · Cancelamento gratuito
+        </Text>
+      </CardContent>
+    </Card>
+  ))
+  .add("with header", () => (
+    <Card style={cardStyles.card} onClick={action("clicked")}>
+      <CardHeader title="Header title" subtitle="September 14, 2016" />
+    </Card>
+  ));
