@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
+import styles from "../styles";
 
 const Btn = styled.button`
   background: ${props => props.theme.backgroundColor};
@@ -9,7 +10,7 @@ const Btn = styled.button`
   color: ${props => props.theme.color};
   cursor: pointer;
   display: inline-block;
-  font-family: "Montserrat", sans-serif;
+  font-family: ${styles.fontFamily};
   font-size: 14px;
   font-weight: ${props => props.theme.fontWeight};
   line-height: 18px;
@@ -36,7 +37,7 @@ const warningTheme = {
 const whiteTheme = {
   backgroundColor: "#FFF",
   border: "2px solid #FFF",
-  color: "rgb(72, 72, 72)",
+  color: styles.color.body,
   boxShadow: "rgba(0, 0, 0, 0.05) 0px 4px 4px 0px",
   fontWeight: 700,
   padding: "12px 24px"
@@ -75,7 +76,7 @@ class Button extends Component {
       theme = { ...theme, ...size };
     }
 
-    this.setState({ theme: theme });
+    this.setState({ theme });
   }
 
   render() {

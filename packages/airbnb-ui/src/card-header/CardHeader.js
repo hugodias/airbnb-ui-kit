@@ -1,31 +1,44 @@
 import React from "react";
 import styled from "styled-components";
+import styles from "../styles";
 
 const Header = styled.div`
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 16px 24px;
-    font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-family: ${styles.fontFamily};
+  margin: 20px 0;
+`;
+
+const Info = styled.div`
+  display: block;
 `;
 
 const Title = styled.span`
-    font-size: 18px;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  width: 100%;
+  color: ${styles.color.body};
 `;
 
 const Subtitle = styled.span`
-    font-size: 12px !important;
-    font-weight: 300;
-`
+  font-size: 11px;
+  font-weight: 300;
+  display: block;
+  width: 100%;
+  color: ${styles.color.body};
+`;
 
 const CardHeader = props => {
-  const { avatar, title, subtitle } = props;
+  const { avatar, title, subtitle, className, style } = props;
   return (
-    <Header>
-      {avatar ? <Avatar>{avatar}</Avatar> : null}
-      <Title>{title}</Title>
-      <Subtitle>{subtitle}</Subtitle>
+    <Header className={className} style={style}>
+      {avatar ? avatar : null}
+      <Info>
+        <Title>{title}</Title>
+        <Subtitle>{subtitle}</Subtitle>
+      </Info>
     </Header>
   );
 };

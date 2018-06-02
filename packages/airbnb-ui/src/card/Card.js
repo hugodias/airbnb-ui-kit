@@ -6,12 +6,16 @@ const Container = styled.div`
   height: 100%;
   position: relative;
   cursor: ${props => (props.onClick ? "pointer" : "default")};
+  box-shadow: ${props =>
+    props.shadow ? "rgba(0, 0, 0, 0.06) 0px 1px 0px 0px" : "#FFF 0px 0px 0px"};
+  background: ${props => (props.shadow ? "#FFF" : "transparent")};
 `;
 
 class Card extends Component {
   render() {
+    const { onClick, style, shadow } = this.props;
     return (
-      <Container onClick={this.props.onClick} style={this.props.style}>
+      <Container onClick={onClick} style={style} shadow={shadow}>
         {this.props.children}
       </Container>
     );

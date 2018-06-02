@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
+import styles from "../styles";
 
 const Typography = styled.p`
   text-rendering: optimizeLegibility;
@@ -11,12 +12,12 @@ const Typography = styled.p`
   letter-spacing: ${props => props.theme.letterSpacing};
   margin: ${props => props.theme.margin || 0};
   padding: ${props => props.theme.padding || 0};
-  font-family: ${props => props.theme.fontFamily || '"Montserrat", sans-serif'};
+  font-family: ${props => props.theme.fontFamily || styles.fontFamily};
   display: ${props => props.theme.display || "block"};
 `;
 
 const defaultTheme = {
-  color: "#2b2b2b",
+  color: styles.color.body,
   fontWeight: "400",
   fontSize: "14px",
   lineHeight: "40px",
@@ -24,7 +25,7 @@ const defaultTheme = {
 };
 
 const titleTheme = {
-  color: "#2b2b2b",
+  color: styles.color.body,
   fontWeight: "800",
   fontSize: "34px",
   lineHeight: "40px",
@@ -32,7 +33,7 @@ const titleTheme = {
 };
 
 const headlineTheme = {
-  color: "#767676",
+  color: styles.color.headline,
   fontWeight: "300",
   fontSize: "34px",
   lineHeight: "40px",

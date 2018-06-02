@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import styles from "../styles";
 
 const className = ["ExploreCard"];
 
@@ -31,11 +32,11 @@ const Text = styled.div`
   font-size: 17px;
   line-height: 21px;
   letter-spacing: 0px;
-  color: rgb(72, 72, 72) !important;
+  color: ${styles.color.body} !important;
   font-weight: 700;
   padding-left: 16px !important;
   padding-right: 16px !important;
-  font-family: 'Montserrat', sans-serif;
+  font-family: ${styles.fontFamily};
 `;
 
 const ExploreCard = props => (

@@ -46,8 +46,12 @@ storiesOf("Typography", module).add("Text", () => (
     <Text type="headline" tag="h2">
       This is a headline
     </Text>
-    <Text type="title" tag="h1" display="inline">This is a inline title  · </Text>
-    <Text type="headline" tag="h2" display="inline">This is a inline headline</Text>
+    <Text type="title" tag="h1" display="inline">
+      This is a inline title ·{" "}
+    </Text>
+    <Text type="headline" tag="h2" display="inline">
+      This is a inline headline
+    </Text>
     <Text type="paragraph" tag="p">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus
       commodo consequat. Sed vel facilisis nibh, quis facilisis velit.
@@ -64,33 +68,30 @@ storiesOf("Typography", module).add("Text", () => (
 
 const cardStyles = {
   card: {
-    maxWidth: 268
+    maxWidth: 268,
+  },
+  media: {
+    borderRadius: "3px"
+  },
+  header: {
+    padding: "20px 20px 0 20px"
+  },
+  content: {
+    padding: "10px 20px 20px 20px"
+  },
+  background: {
+    background: "#F2F2F2",
+    width: "100%",
+    minHeight: "500px",
+    height: "auto",
+    padding: "100px"
   }
-};
-
-
-
-const avatarStyles = {
-  row: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  wrapper: {
-    margin: 10,
-  },
-  img: {
-    margin: 10,
-  },
-  bigAvatar: {
-    width: 60,
-    height: 60,
-  },
 };
 
 storiesOf("Card", module)
   .add("with image", () => (
     <Card style={cardStyles.card} onClick={action("clicked")}>
-      <CardMedia src={cardImageSrc} />
+      <CardMedia src={cardImageSrc} style={cardStyles.media} />
       <CardContent>
         <Text tag="span">CABANA INTEIRA · JOSHUA TREE</Text>
         <Text tag="h2">Joshua Tree Homesteader Cabin</Text>
@@ -101,9 +102,28 @@ storiesOf("Card", module)
     </Card>
   ))
   .add("with header", () => (
-    <Card style={cardStyles.card} onClick={action("clicked")}>
-      <CardHeader avatar={
-        <Avatar src="https://api.adorable.io/avatars/100/hugooodias@gmail.com.png" size="35" />
-      } title="Header title" subtitle="September 14, 2016" />
-    </Card>
+    <div style={cardStyles.background}>
+      <Card style={cardStyles.card} onClick={action("clicked")} shadow>
+        <CardHeader
+          avatar={
+            <Avatar
+              src="https://api.adorable.io/avatars/100/hugooodias@gmail.com.png"
+              size="35"
+            />
+          }
+          title="Username"
+          subtitle="Apr, 2018"
+          style={cardStyles.header}
+        />
+        <CardMedia src={cardImageSrc} />
+        <CardContent style={cardStyles.content}>
+          <Text type="paragraph" tag="p">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut
+            exercitationem ullam aut quis quisquam pariatur dolor atque facilis!
+            Accusamus beatae id assumenda velit molestias odio architecto
+            aliquid blanditiis deleniti.
+          </Text>
+        </CardContent>
+      </Card>
+    </div>
   ));

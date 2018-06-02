@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import styles from "../styles";
 
 const Content = styled.div`
   h3 {
@@ -13,11 +14,11 @@ const Content = styled.div`
     font-size: 16px;
     font-weight: 700;
     letter-spacing: -0.2px;
-    color: rgb(72, 72, 72);
+    color: ${styles.color.body};
   }
 
   span {
-    color: rgb(165, 41, 3);
+    color: ${styles.color.red};
     font-size: 12px;
     line-height: 16px;
     letter-spacing: normal;
@@ -31,12 +32,13 @@ const Content = styled.div`
     line-height: 18px;
     font-weight: normal;
     letter-spacing: -0.2px;
-    color: rgb(72, 72, 72);
+    color: ${styles.color.body};
+    margin: 0;
   }
 `;
 
 const CardContent = props => (
-<Content>{props.children}</Content>
+  <Content style={props.style}>{props.children}</Content>
 );
 
 export default CardContent;
