@@ -5,12 +5,13 @@ import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
 import {
+  Avatar,
   Button,
-  ExploreCard,
   Card,
   CardContent,
-  CardMedia,
   CardHeader,
+  CardMedia,
+  ExploreCard,
   Text
 } from "../index";
 import "../styles/index.css";
@@ -67,6 +68,25 @@ const cardStyles = {
   }
 };
 
+
+
+const avatarStyles = {
+  row: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  wrapper: {
+    margin: 10,
+  },
+  img: {
+    margin: 10,
+  },
+  bigAvatar: {
+    width: 60,
+    height: 60,
+  },
+};
+
 storiesOf("Card", module)
   .add("with image", () => (
     <Card style={cardStyles.card} onClick={action("clicked")}>
@@ -82,6 +102,8 @@ storiesOf("Card", module)
   ))
   .add("with header", () => (
     <Card style={cardStyles.card} onClick={action("clicked")}>
-      <CardHeader title="Header title" subtitle="September 14, 2016" />
+      <CardHeader avatar={
+        <Avatar src="https://api.adorable.io/avatars/100/hugooodias@gmail.com.png" size="35" />
+      } title="Header title" subtitle="September 14, 2016" />
     </Card>
   ));
