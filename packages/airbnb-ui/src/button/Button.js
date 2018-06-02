@@ -9,7 +9,7 @@ const Btn = styled.button`
   color: ${props => props.theme.color};
   cursor: pointer;
   display: inline-block;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-weight: ${props => props.theme.fontWeight};
   line-height: 18px;

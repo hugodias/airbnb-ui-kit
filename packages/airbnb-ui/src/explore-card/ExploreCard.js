@@ -35,7 +35,7 @@ const Text = styled.div`
   font-weight: 700;
   padding-left: 16px !important;
   padding-right: 16px !important;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 `;
 
 const ExploreCard = props => (

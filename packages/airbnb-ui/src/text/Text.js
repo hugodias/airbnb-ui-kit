@@ -9,9 +9,10 @@ const Typography = styled.p`
   font-size: ${props => props.theme.fontSize};
   line-height: ${props => props.theme.lineHeight};
   letter-spacing: ${props => props.theme.letterSpacing};
-  margin: 0;
-  padding: 0;
-  font-family: ${props => props.theme.fontFamily || '"Roboto", sans-serif'};
+  margin: ${props => props.theme.margin || 0};
+  padding: ${props => props.theme.padding || 0};
+  font-family: ${props => props.theme.fontFamily || '"Montserrat", sans-serif'};
+  display: ${props => props.theme.display || "block"};
 `;
 
 const defaultTheme = {
@@ -24,7 +25,7 @@ const defaultTheme = {
 
 const titleTheme = {
   color: "#2b2b2b",
-  fontWeight: "700",
+  fontWeight: "800",
   fontSize: "34px",
   lineHeight: "40px",
   letterSpacing: "-.8px"
@@ -39,9 +40,11 @@ const headlineTheme = {
 };
 
 const paragraphTheme = {
-  fontFamily: "'Arimo', sans-serif;",
-  lineHeight: "22px"
-}
+  lineHeight: "22px",
+  fontSize: "14px",
+  letterSpacing: "-0.2px",
+  margin: "10px 0"
+};
 
 class Text extends Component {
   constructor(props) {
@@ -53,7 +56,7 @@ class Text extends Component {
 
   componentWillMount() {
     let theme = defaultTheme;
-    const { type, size } = this.props;
+    const { type, display } = this.props;
 
     // Apply themes
     switch (type) {
@@ -65,6 +68,12 @@ class Text extends Component {
         break;
       case "paragraph":
         theme = { ...theme, ...paragraphTheme };
+        break;
+    }
+
+    switch (display) {
+      case "inline":
+        theme = { ...theme, ...{ display: "inline-block" } };
         break;
     }
 

@@ -45,14 +45,18 @@ storiesOf("Typography", module).add("Text", () => (
     <Text type="headline" tag="h2">
       This is a headline
     </Text>
+    <Text type="title" tag="h1" display="inline">This is a inline title  · </Text>
+    <Text type="headline" tag="h2" display="inline">This is a inline headline</Text>
     <Text type="paragraph" tag="p">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus
       commodo consequat. Sed vel facilisis nibh, quis facilisis velit.
       Vestibulum mattis elit vel diam laoreet, eget facilisis erat lacinia. Nunc
-      eu libero eu ligula venenatis bibendum eu ut eros. Aenean dolor lorem,
-      fringilla sed sapien ac, vulputate ultrices diam. Ut luctus tellus dolor.
-      Maecenas tincidunt malesuada aliquam. Nullam gravida nec felis eget
-      pretium. Proin fermentum pulvinar auctor.
+      eu libero eu ligula venenatis bibendum eu ut eros.
+    </Text>
+    <Text type="paragraph" tag="p">
+      Aenean dolor lorem, fringilla sed sapien ac, vulputate ultrices diam. Ut
+      luctus tellus dolor. Maecenas tincidunt malesuada aliquam. Nullam gravida
+      nec felis eget pretium. Proin fermentum pulvinar auctor.
     </Text>
   </div>
 ));
@@ -68,8 +72,8 @@ storiesOf("Card", module)
     <Card style={cardStyles.card} onClick={action("clicked")}>
       <CardMedia src={cardImageSrc} />
       <CardContent>
-        <Text tag="span">Quarto inteiro · Marrakech</Text>
-        <Text tag="h2">The Cozy Place</Text>
+        <Text tag="span">CABANA INTEIRA · JOSHUA TREE</Text>
+        <Text tag="h2">Joshua Tree Homesteader Cabin</Text>
         <Text type="paragraph" tag="p">
           R$ 408 por noite · Cancelamento gratuito
         </Text>

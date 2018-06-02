@@ -6,6 +6,7 @@ const Header = styled.div`
     align-items: center;
     width: 100%;
     padding: 16px 24px;
+    font-family: 'Montserrat', sans-serif;
 `;
 
 const Title = styled.span`

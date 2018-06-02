@@ -11,7 +11,8 @@ const Content = styled.div`
     line-height: 22px;
     text-overflow: ellipsis;
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 700;
+    letter-spacing: -0.2px;
     color: rgb(72, 72, 72);
   }
 
@@ -20,15 +21,16 @@ const Content = styled.div`
     font-size: 12px;
     line-height: 16px;
     letter-spacing: normal;
-    font-weight: 800;
+    font-weight: 700;
     word-wrap: break-word;
     text-transform: uppercase;
   }
 
   p {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 18px;
     font-weight: normal;
+    letter-spacing: -0.2px;
     color: rgb(72, 72, 72);
   }
 `;
