@@ -14,7 +14,8 @@ const Content = styled.div`
     font-size: 16px;
     font-weight: 700;
     letter-spacing: -0.2px;
-    color: ${styles.color.body};
+    color: ${styles.color.black};
+    margin: 0;
   }
 
   span {
@@ -25,6 +26,7 @@ const Content = styled.div`
     font-weight: 700;
     word-wrap: break-word;
     text-transform: uppercase;
+    margin: 0;
   }
 
   p {

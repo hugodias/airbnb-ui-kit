@@ -16,6 +16,8 @@ import {
 } from "../index";
 import "../styles/index.css";
 
+import styles from "../styles";
+
 const imageSrc =
   "https://a0.muscache.com/im/pictures/7e6d4e06-1e8f-47f2-9ffc-12a6d48b4406.jpg";
 
@@ -40,28 +42,26 @@ storiesOf("Button", module)
 
 storiesOf("Typography", module).add("Text", () => (
   <div>
-    <Text type="title" tag="h1">
-      This is a title
+    <Text type="title1" tag="h1">
+      Title 1 · 44/56
     </Text>
-    <Text type="headline" tag="h2">
-      This is a headline
+    <Text type="title2" tag="h1">
+      Title 2 · 32/26
     </Text>
-    <Text type="title" tag="h1" display="inline">
-      This is a inline title ·{" "}
+    <Text type="title3" tag="h1">
+      Title 3 · 24/28
     </Text>
-    <Text type="headline" tag="h2" display="inline">
-      This is a inline headline
+    <Text type="large" tag="h1">
+      Large · 19/24
     </Text>
-    <Text type="paragraph" tag="p">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus
-      commodo consequat. Sed vel facilisis nibh, quis facilisis velit.
-      Vestibulum mattis elit vel diam laoreet, eget facilisis erat lacinia. Nunc
-      eu libero eu ligula venenatis bibendum eu ut eros.
+    <Text type="regular" tag="p">
+      Regular · 17/22
     </Text>
-    <Text type="paragraph" tag="p">
-      Aenean dolor lorem, fringilla sed sapien ac, vulputate ultrices diam. Ut
-      luctus tellus dolor. Maecenas tincidunt malesuada aliquam. Nullam gravida
-      nec felis eget pretium. Proin fermentum pulvinar auctor.
+    <Text type="small" tag="span">
+      Small · 14/18
+    </Text>
+    <Text type="micro" tag="span">
+      Micro · 8/8
     </Text>
   </div>
 ));
@@ -74,7 +74,7 @@ const cardStyles = {
     borderRadius: "3px"
   },
   header: {
-    padding: "20px 20px 0 20px"
+    padding: "20px",
   },
   content: {
     padding: "10px 20px 20px 20px"
@@ -82,9 +82,9 @@ const cardStyles = {
   background: {
     background: "#F2F2F2",
     width: "100%",
-    minHeight: "500px",
+    
     height: "auto",
-    padding: "100px"
+    padding: "30px"
   }
 };
 

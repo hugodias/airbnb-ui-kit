@@ -5,47 +5,64 @@ import styles from "../styles";
 const Typography = styled.p`
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  color: ${props => props.theme.color};
+  color: ${styles.color.black};
   font-weight: ${props => props.theme.fontWeight};
   font-size: ${props => props.theme.fontSize};
   line-height: ${props => props.theme.lineHeight};
   letter-spacing: ${props => props.theme.letterSpacing};
   margin: ${props => props.theme.margin || 0};
   padding: ${props => props.theme.padding || 0};
-  font-family: ${props => props.theme.fontFamily || styles.fontFamily};
+  font-family: ${styles.fontFamily};
   display: ${props => props.theme.display || "block"};
 `;
 
-const defaultTheme = {
+const title1Theme = {
   color: styles.color.body,
-  fontWeight: "400",
-  fontSize: "14px",
-  lineHeight: "40px",
-  letterSpacing: "0px"
-};
-
-const titleTheme = {
-  color: styles.color.body,
-  fontWeight: "800",
-  fontSize: "34px",
-  lineHeight: "40px",
+  fontWeight: "700",
+  fontSize: "44px",
+  lineHeight: "56px",
   letterSpacing: "-.8px"
 };
 
-const headlineTheme = {
-  color: styles.color.headline,
-  fontWeight: "300",
-  fontSize: "34px",
-  lineHeight: "40px",
-  letterSpacing: "-.4px"
+const title2Theme = {
+  color: styles.color.body,
+  fontWeight: "700",
+  fontSize: "32px",
+  lineHeight: "36px",
 };
 
-const paragraphTheme = {
+const title3Theme = {
+  color: styles.color.body,
+  fontWeight: "500",
+  fontSize: "24px",
+  lineHeight: "28px",
+};
+
+const largeTheme = {
+  lineHeight: "24px",
+  fontSize: "19px",
+  fontWeight: "400"
+};
+
+const regularTheme = {
   lineHeight: "22px",
-  fontSize: "14px",
+  fontSize: "17px",
   letterSpacing: "-0.2px",
   margin: "10px 0"
 };
+
+const smallTheme = {
+  lineHeight: "18px",
+  fontSize: "14px"
+};
+
+const microTheme = {
+  lineHeight: "8px",
+  fontSize: "8px",
+  fontWeight: "700"
+};
+
+const defaultTheme = regularTheme;
 
 class Text extends Component {
   constructor(props) {
@@ -61,14 +78,26 @@ class Text extends Component {
 
     // Apply themes
     switch (type) {
-      case "title":
-        theme = { ...theme, ...titleTheme };
+      case "title1":
+        theme = { ...theme, ...title1Theme };
         break;
-      case "headline":
-        theme = { ...theme, ...headlineTheme };
+      case "title2":
+        theme = { ...theme, ...title2Theme };
         break;
-      case "paragraph":
-        theme = { ...theme, ...paragraphTheme };
+      case "title3":
+        theme = { ...theme, ...title3Theme };
+        break;
+      case "large":
+        theme = { ...theme, ...largeTheme };
+        break;
+      case "regular":
+        theme = { ...theme, ...regularTheme };
+        break;
+      case "small":
+        theme = { ...theme, ...smallTheme };
+        break;
+      case "micro":
+        theme = { ...theme, ...microTheme };
         break;
     }
 

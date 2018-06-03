@@ -7,7 +7,6 @@ const Header = styled.div`
   align-items: center;
   width: 100%;
   font-family: ${styles.fontFamily};
-  margin: 20px 0;
 `;
 
 const Info = styled.div`
