@@ -5,7 +5,7 @@ import styles from "../styles";
 const Typography = styled.p`
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  color: ${styles.color.black};
+  color: ${props => props.theme.color};
   font-weight: ${props => props.theme.fontWeight};
   font-size: ${props => props.theme.fontSize};
   line-height: ${props => props.theme.lineHeight};
@@ -15,6 +15,14 @@ const Typography = styled.p`
   font-family: ${styles.fontFamily};
   display: ${props => props.theme.display || "block"};
 `;
+
+const leadTheme = {
+  color: styles.color.dark,
+  fontWeight: "800",
+  fontSize: "36px",
+  lineHeight: "42px",
+  letterSpacing: "-.8px"
+};
 
 const title1Theme = {
   color: styles.color.body,
@@ -28,14 +36,14 @@ const title2Theme = {
   color: styles.color.body,
   fontWeight: "700",
   fontSize: "32px",
-  lineHeight: "36px",
+  lineHeight: "36px"
 };
 
 const title3Theme = {
   color: styles.color.body,
   fontWeight: "500",
   fontSize: "24px",
-  lineHeight: "28px",
+  lineHeight: "28px"
 };
 
 const largeTheme = {
@@ -78,6 +86,9 @@ class Text extends Component {
 
     // Apply themes
     switch (type) {
+      case "lead":
+        theme = { ...theme, ...leadTheme };
+        break;
       case "title1":
         theme = { ...theme, ...title1Theme };
         break;
